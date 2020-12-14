@@ -5,7 +5,7 @@ public enum  Player {
     Y(false),
     NONE;
 
-    boolean active;
+    private boolean active;
 
     Player() {
     }
