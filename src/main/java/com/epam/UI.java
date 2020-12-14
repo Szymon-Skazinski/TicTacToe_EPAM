@@ -59,14 +59,14 @@ public class UI {
         return cell;
     }
 
-    public String intro() {
-        return "Welcome to Tic-tac-toe game.\n" +
+    public void intro() {
+        showMessage("Welcome to Tic-tac-toe game.\n" +
                 "Please choose cell number as follow: \n\n" +
                 " 7 | 8 | 9\n" +
                 "---|---|---\n" +
                 " 4 | 5 | 6\n" +
                 "---|---|---\n" +
-                " 1 | 2 | 3\n";
+                " 1 | 2 | 3\n");
     }
 
     public void showMessage(String message) {
