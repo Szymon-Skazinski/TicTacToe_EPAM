@@ -2,6 +2,20 @@ package com.epam;
 
 public class TicTacToeGame {
 
+    private final int size;
+    private final UI ui;
+
+    public TicTacToeGame(int size, UI ui) {
+        this.size = size;
+        this.ui = ui;
+    }
+
+
+    void gameInit() {
+        createBoard(size);
+        UI ui = new UI(System.in, System.out);
+    }
+
     private Board createBoard(int size) {
 
         Cell[][] cells = new Cell[size][size];
