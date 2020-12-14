@@ -15,6 +15,24 @@ public class Arbiter {
         return state;
     }
 
+    private static State checkVerticalWin(Board board) {
+        State state = State.PLAYING;
+
+        for (int i = 0; i < 3; i++) {
+
+            Cell[] column = new Cell[]{
+                    board.getCell(0, i),
+                    board.getCell(1, i),
+                    board.getCell(2, i)
+            };
+            state = checkState(column);
+
+            if (state != State.PLAYING) return state;
+        }
+
+        return state;
+    }
+
 
     private static State checkState(Cell[] cells) {
 
