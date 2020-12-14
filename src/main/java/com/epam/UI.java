@@ -13,9 +13,7 @@ public class UI {
         this.out = out;
     }
 
-    public int getCellNumber(Player player) {
-        showMessage("It's your turn Mr." + player + ". Please choose number of cell between 1 and 9: \n");
-
+    public int getCellNumber() {
         return in.nextInt();
     }
 
