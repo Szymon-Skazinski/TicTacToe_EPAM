@@ -19,7 +19,7 @@ public class UI {
         return in.nextInt();
     }
 
-    private Cell getCell(int position, Board board) {
+    public Cell getCellByPosition(int position, Board board) {
         Cell cell;
 
         switch (position) {
