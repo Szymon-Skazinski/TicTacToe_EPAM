@@ -5,6 +5,17 @@ import java.util.Arrays;
 public class Arbiter {
 
 
+    private static State checkHorizontalWin(Board board) {
+        State state = State.PLAYING;
+
+        for (Cell[] row : board.getBoard()) {
+            state = checkState(row);
+            if (state != State.PLAYING) return state;
+        }
+        return state;
+    }
+
+
     private static State checkState(Cell[] cells) {
 
 
