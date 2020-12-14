@@ -12,6 +12,9 @@ public class Board {
         return board;
     }
 
+    public Cell getCell(int row, int column){
+        return board[row][column];
+    }
 
 
 }
