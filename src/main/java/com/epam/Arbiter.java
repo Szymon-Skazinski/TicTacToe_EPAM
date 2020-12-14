@@ -4,6 +4,32 @@ import java.util.Arrays;
 
 public class Arbiter {
 
+    public static State judge(Board board) {
+
+        State state;
+
+        state = checkHorizontalWin(board);
+        if (state != State.PLAYING) {
+            System.out.println("Horizontal win");
+            return state;
+        }
+
+        state = checkVerticalWin(board);
+        if (state != State.PLAYING) {
+            System.out.println("Vertical win");
+            return state;
+        }
+
+        state = checkDiagonalWin(board);
+        if (checkDiagonalWin(board) != State.PLAYING) {
+            System.out.println("Diagonal win");
+            return state;
+        }
+
+
+        return state;
+    }
+
 
     private static State checkHorizontalWin(Board board) {
         State state = State.PLAYING;
