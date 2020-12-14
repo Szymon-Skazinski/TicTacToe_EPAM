@@ -1,4 +1,5 @@
 package com.epam;
 
-public class State {
+public enum  State {
+    PLAYING, X_WON, Y_WON
 }
