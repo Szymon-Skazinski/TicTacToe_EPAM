@@ -33,6 +33,26 @@ public class Arbiter {
         return state;
     }
 
+    private static State checkDiagonalWin(Board board) {
+        State state;
+
+        Cell[] diagonal1 = new Cell[]{
+                board.getCell(0, 0),
+                board.getCell(1, 1),
+                board.getCell(2, 2)
+        };
+        Cell[] diagonal2 = new Cell[]{
+                board.getCell(0, 2),
+                board.getCell(1, 1),
+                board.getCell(2, 0)
+        };
+
+        state = checkState(diagonal1);
+        if (state != State.PLAYING) return state;
+        state = checkState(diagonal2);
+        return state;
+    }
+
 
     private static State checkState(Cell[] cells) {
 
