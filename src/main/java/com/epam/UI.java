@@ -13,5 +13,51 @@ public class UI {
         this.out = out;
     }
 
+    public int getCellNumber(Player player) {
+        out.format("It's your turn Mr." + player + ". Please choose number of cell: \n");
+
+        return in.nextInt();
+    }
+
+    private Cell getCell(int position, Board board) {
+        Cell cell;
+
+        switch (position) {
+
+            case 1:
+                cell = board.getCell(2, 0);
+                break;
+            case 2:
+                cell = board.getCell(2, 1);
+                break;
+            case 3:
+                cell = board.getCell(2, 2);
+                break;
+
+            case 4:
+                cell = board.getCell(1, 0);
+                break;
+            case 5:
+                cell = board.getCell(1, 1);
+                break;
+            case 6:
+                cell = board.getCell(1, 2);
+                break;
+
+            case 7:
+                cell = board.getCell(0, 0);
+                break;
+            case 8:
+                cell = board.getCell(0, 1);
+                break;
+            case 9:
+                cell = board.getCell(0, 2);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + position);
+        }
+        return cell;
+    }
+
 
 }
