@@ -1,9 +1,14 @@
 package com.epam;
 
-public enum  Player {
+public enum Player {
     X(false),
     Y(false),
-    NONE;
+    NONE {
+        @Override
+        public String toString() {
+            return " ";
+        }
+    };
 
     private boolean active;
 
