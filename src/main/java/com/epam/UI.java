@@ -2,7 +2,9 @@ package com.epam;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class UI {
     private final Scanner in;
@@ -67,8 +69,24 @@ public class UI {
                 " 1 | 2 | 3\n");
     }
 
-    public void showMessage(String message) {
-        out.println(message);
+    public void printBoard(Board board) {
+        Cell[][] cellsArray = board.getBoard();
+        for (int i = 0; i < cellsArray.length; i++) {
+            Cell[] cells = cellsArray[i];
+            String row = Arrays.stream(cells)
+                    .map(c -> c.getPlayer().toString())
+                    .collect(Collectors.joining(" | ", " ", " \n"));
+
+            showMessage(row);
+            if (i != cellsArray.length - 1) {
+                showMessage("---|---|---\n");
+            }
+        }
     }
+
+    public void showMessage(String message) {
+        out.print(message);
+    }
+
 
 }
