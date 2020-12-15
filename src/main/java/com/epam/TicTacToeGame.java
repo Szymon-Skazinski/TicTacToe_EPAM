@@ -1,19 +1,21 @@
 package com.epam;
 
+import java.io.InputStream;
+import java.io.PrintStream;
+
 public class TicTacToeGame {
 
-    private final int size;
+    private static final int SIZE = 3;
     private final UI ui;
     private Board board;
 
 
-    public TicTacToeGame(int size, UI ui) {
-        this.size = size;
-        this.ui = ui;
+    public TicTacToeGame(InputStream in, PrintStream out) {
+        this.ui = new UI(in, out);
     }
 
     void gameInit() {
-        board = createBoard(size);
+        board = createBoard(SIZE);
         ui.intro();
         gameLoop();
     }
