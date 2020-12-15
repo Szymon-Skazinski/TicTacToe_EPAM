@@ -12,10 +12,23 @@ public class TicTacToeGame {
         this.ui = ui;
     }
 
-
     void gameInit() {
-        createBoard(size);
-        UI ui = new UI(System.in, System.out);
+        board = createBoard(size);
+        ui.intro();
+        gameLoop();
+    }
+
+    private void gameLoop() {
+        Player currentPlayer = Player.X;
+
+        while (Arbiter.judge(board) == State.PLAYING) {
+            ui.showMessage("It's your turn Mr." + currentPlayer + "\n");
+            Cell cell = chooseCell();
+            cell.setPlayer(currentPlayer);
+            currentPlayer = switchPlayer(currentPlayer);
+            ui.printBoard(board);
+        }
+
     }
 
     private Board createBoard(int size) {
