@@ -4,6 +4,8 @@ public class TicTacToeGame {
 
     private final int size;
     private final UI ui;
+    private Board board;
+
 
     public TicTacToeGame(int size, UI ui) {
         this.size = size;
@@ -27,4 +29,31 @@ public class TicTacToeGame {
         }
         return new Board(cells);
     }
+
+    private Cell chooseCell() {
+        Cell cell;
+        do {
+            ui.showMessage("Please choose number of cell: \n");
+            int cellPosition = ui.getCellNumber();
+            cell = ui.getCellByPosition(cellPosition, board);
+
+            if (cell.getPlayer().equals(Player.X) || cell.getPlayer().equals(Player.Y)) {
+                ui.showMessage("Cell is not empty. Try again.");
+            }
+        } while (!cell.isEmpty());
+        return cell;
+    }
+
+    private Player switchPlayer(Player currentPlayer) {
+        switch (currentPlayer) {
+            case X:
+                return Player.Y;
+            case Y:
+                return Player.X;
+            default:
+                return Player.NONE;
+        }
+    }
+
+
 }
