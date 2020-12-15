@@ -22,13 +22,15 @@ public class TicTacToeGame {
 
     private void gameLoop() {
         Player currentPlayer = Player.X;
+        int remainingRounds = SIZE * SIZE;
 
-        while (Arbiter.judge(board) == State.PLAYING) {
+        while (Arbiter.judge(board) == State.PLAYING && remainingRounds > 0) {
             ui.showMessage("It's your turn Mr." + currentPlayer + "\n");
             Cell cell = chooseCell();
             cell.setPlayer(currentPlayer);
             currentPlayer = switchPlayer(currentPlayer);
             ui.printBoard(board);
+            remainingRounds--;
         }
 
     }
